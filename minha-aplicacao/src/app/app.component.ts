@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'minha-aplicacao';
+  title: string = 'minha-aplicacao';
+
+  somar(numero1: number, numero2: number){
+    return numero1 + numero2;
+  }
+
+  constructor() {
+    this.title = "Outra coisa";
+
+  setTimeout(() => {
+      this.title = "Seja bem vindo";
+    }, 3000);
+  }
+
+  eventoRecebido(){
+    alert("Evento recebido pelo app component");
+  }
 }
