@@ -1,0 +1,72 @@
+<h2>
+    Diretivas de atributos
+</h2>
+<div class="container" [ngClass]="corClasse">
+    Div que vai mudar de cor
+</div>
+
+<div class="container" [ngClass]="corClasse ? 'verde' : 'azul'">
+    Outra forma de usar o ngClass
+</div>
+
+<div class="container" [ngClass]="{
+    verde: (corClasse == 'verde' ? true : false),
+    azul: (corClasse == 'azul' ? true : false),
+    fonteGrande: (aumentarFonte ? true : false)
+}">
+    Ainda outra forma de usar com múltiplos valores
+</div>
+
+<button (click)="changeToGreen()">
+    Verde
+</button>
+<button (click)="changeToBlue()">
+    Azul
+</button>
+<button (click)="changeTamanhoFonte()">
+    Fonte grande
+</button>
+<hr>
+<br>
+
+<h2>
+    Ng-If
+</h2>
+<div *ngIf="deveExibir; else elseBlock">
+    Teste
+</div>
+<ng-template #elseBlock>
+    Outro bloco
+</ng-template>
+
+
+<button (click)="mudarVisualizacao()">Mudar</button>
+
+<hr>
+<h2>
+    Ng-For
+</h2>
+<ul>
+    <li *ngFor="let fruta of arrFrutas; let index = index;let even = even; last as ultimo">
+        {{(index + 11) + " " + fruta}} -  {{!even ? "É par" : "É impar"}} {{ultimo ? " - É o último elemento" : ""}}
+    </li>
+</ul>
+<hr>
+
+<h2>
+    Exercicio das imagens
+</h2>
+
+<div *ngFor="let categoria of memes">    
+    <h1>
+        {{categoria.categoria}}
+    </h1>
+    <ul>
+        <li *ngFor="let meme of categoria.memes; even as even">            
+            <img src="{{getImagemUrl(meme)}}" *ngIf="!even">
+            <h3 *ngIf="even">Par</h3>
+        </li>
+    </ul>
+</div>
+
+

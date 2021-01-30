@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string = 'minha-aplicacao';
 
+  valorInicial: number = 10;  
+
   somar(numero1: number, numero2: number){
     return numero1 + numero2;
   }
@@ -20,7 +22,10 @@ export class AppComponent {
     }, 3000);
   }
 
-  eventoRecebido(){
+  eventoRecebido(novoValor:number){
+    console.log(novoValor);
     alert("Evento recebido pelo app component");
   }
+
+  
 }

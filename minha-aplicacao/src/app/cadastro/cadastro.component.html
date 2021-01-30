@@ -1,0 +1,76 @@
+<body id="CadastroForm">
+    <div class="container">
+        <h1 class="form-heading">Cadastro Form</h1>
+        <div class="Cadastro-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>Admin Cadastro</h2>
+                    <p>Entre com suas informações</p>
+                </div>
+                <form id="Cadastro" #form="ngForm">
+                    
+                    <div class="form-group">
+                        
+                        
+                        <input type="email" class="form-control" [(ngModel)]="login" name="usuario" #usuarioInput id="inputEmail" placeholder="Login" required 
+                            [class.is-invalid]="form.controls.usuario && form.controls.usuario.invalid && form.controls.usuario.touched"
+                        >
+                        <!-- Primeira forma de fazer  -->
+                    </div>
+                    
+                    <div class="form-group">
+                        
+                        
+                        <input type="text" class="form-control" [(ngModel)]="nome" name="nome" #nomeInput id="inputNome" placeholder="Nome" required 
+                        [class.is-invalid]="exibeErro(form, 'nome')"
+                        >
+                        <!-- Segunda forma de fazer -->
+                    </div>
+
+                    <div class="form-group">
+                        
+                        
+                        <input type="text" class="form-control" [(ngModel)]="cpf" name="cpf" #nomeInput id="inputCpf" placeholder="Cpf" required 
+                        [class.is-invalid]="exibeErro(form, 'cpf')"
+                        >
+                        <!-- Segunda forma de fazer -->
+                    </div>
+
+                    <div class="form-group">
+                        
+                        <input type="password" class="form-control" [(ngModel)]="senha" name="senha" id="inputPassword" placeholder="Senha" required
+                        [class.is-invalid]="exibeErro(form, 'senha')"
+                        >
+                        <!-- Segunda forma de fazer -->
+                        
+                    </div>
+
+                    <div class="form-group">
+                        
+                        <input type="password" class="form-control" [(ngModel)]="senhaConfirmada" name="senhaConfirmada" id="inputPasswordConfirm" placeholder="Confirmar Senha" required
+                        [class.is-invalid]="exibeErro(form, 'senhaConfirmada')"
+                        >
+                        <!-- Segunda forma de fazer -->
+                        
+                    </div>
+                    <div class="forgot">
+                        <a routerLink="/cadastro">Login</a>
+                    </div>
+                    <button type="submit" (click)="onCadastro(form)" class="btn btn-primary">Cadastrar</button>
+                    <div *ngIf="erroNoCadastro">
+                        Senhas não coincidem.
+                    </div> 
+                    <div *ngIf="erroNoCadastro">
+                        Erro no cadastro
+                    </div>                    
+                    <br>
+                    <div class="spinner-border" role="status" *ngIf="estaCarregando">                            
+                    </div>
+                    
+                </form>
+            </div>            
+        </div>
+    </div>
+    
+    
+</body>

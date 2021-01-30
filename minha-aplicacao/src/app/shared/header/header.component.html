@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark p-3"> 
+    <a class="navbar-brand" routerLink="/home" routerActive="active"> Meu Bankline </a>
+    <div class="navbar-nav">
+        <a routerLink="/lancamentos" routerActive="active" class="nav-item nav-link">Lancamentos</a>        
+        <a routerLink="/planos-conta" routerActive="active" class="nav-item nav-link">Planos Conta</a>
+        <a routerLink="/cadastro" routerActive="active" class="nav-item nav-link">Cadastro</a>
+
+        <a style="cursor: pointer;" routerLink="active" (click)="logOut()" class="nav-item nav-link">LogOut</a>
+    </div>                   
+</nav>    

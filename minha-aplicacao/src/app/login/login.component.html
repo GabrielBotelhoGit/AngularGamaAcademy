@@ -1,0 +1,46 @@
+<body id="LoginForm">
+    <div class="container">
+        <h1 class="form-heading">login Form</h1>
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>Admin Login</h2>
+                    <p>Please enter your email and password</p>
+                </div>
+                <form id="Login" #form="ngForm">
+                    
+                    <div class="form-group">
+                        
+                        
+                        <input type="email" class="form-control" [(ngModel)]="login" name="usuario" #usuarioInput id="inputEmail" placeholder="Login" required 
+                            [class.is-invalid]="form.controls.usuario && form.controls.usuario.invalid && form.controls.usuario.touched"
+                        >
+                        <!-- Primeira forma de fazer  -->
+                    </div>
+                    
+                    <div class="form-group">
+                        
+                        <input type="password" class="form-control" [(ngModel)]="senha" name="senha" id="inputPassword" placeholder="Password" required
+                        [class.is-invalid]="exibeErro(form, 'senha')"
+                        >
+                        <!-- Segunda forma de fazer -->
+                        
+                    </div>
+                    <div class="forgot">
+                        <a routerLink="/cadastro">Cadastrar</a>
+                    </div>
+                    <button type="submit" (click)="onLogin(form)" class="btn btn-primary">Login</button>
+                    <div *ngIf="erroNoLogin">
+                        Usuário ou senha inválidos
+                    </div>                    
+                    <br>
+                    <div class="spinner-border" role="status" *ngIf="estaCarregando">                            
+                    </div>
+                    
+                </form>
+            </div>            
+        </div>
+    </div>
+    
+    
+</body>

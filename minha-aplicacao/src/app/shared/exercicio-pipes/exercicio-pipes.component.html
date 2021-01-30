@@ -1,0 +1,48 @@
+<h1>
+    Exercicio pipes
+</h1>
+<ul>
+    <li *ngFor="let compra of compras">
+        Produto: <strong>{{compra.produto | uppercase }}</strong>
+        <p>
+            Valor: {{compra.valor | currency:'BRL'}}
+        </p>
+        <p>
+            Quantidade: {{compra.quantidade}}
+        </p>
+        <p>
+            Peso: {{compra.peso ? (compra.peso | number:'1.1-2') : "Sem peso" }} {{compra.peso ? "Kg" : ""}}
+        </p>
+        <p>
+            <!-- Data: {{compra.data | date:'EEEE, dd \'de\' MMMM \'de\' yyyy, \'às\' HH:mm'}} -->
+            Data: {{compra.data | date:"EEEE, dd 'de' MMMM 'de' yyyy, 'às' HH:mm"}}
+        </p>
+        <hr>
+    </li>    
+</ul>
+<hr><br>
+
+<h1>
+    Aprendendo pipes
+</h1>
+<p>
+    {{valorMonetario | currency:'BRL'}}
+</p>
+<h2>
+    {{data | date:'full'}}
+</h2>
+<h2>
+    Titulo filme:{{filme.titulo | uppercase}}
+</h2>
+<h2>
+    Avaliacao filme:{{filme.avaliacao | number:'1.1-3'}}
+</h2>
+<h2>
+    Preço filme: {{filme.precoAluguel | currency:'BRL'}}
+</h2>
+<h2>
+    Data Lancamento: {{filme.dataLancamento | date:'full' | uppercase}}
+</h2>
+<h2>
+    {{filme.precoAluguel | meuPipe:2:2}}
+</h2>

@@ -9,6 +9,9 @@ export class ExercicioDataBindingComponent implements OnInit {
 
   @Output() enviarInformacao = new EventEmitter();
 
+  meuTexto:string = "Texto inicial";
+  meuValorSelect:string ="";
+
   desabilitado: boolean = false;
   imageUrl: string = 'https://i.pinimg.com/originals/eb/c9/70/ebc970ba95b719dc5495020065393cb2.jpg';
 
@@ -26,5 +29,7 @@ export class ExercicioDataBindingComponent implements OnInit {
     console.log("entrou");
   }
   
-
+  digitou(event: KeyboardEvent){
+    console.log(event);
+  }
 }
